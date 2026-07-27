@@ -1,0 +1,29 @@
+carpentry: 'incubator'
+title: 'SLURM Job Scheduling on Sagehen — Pomona College HPC Workshop Series'
+created: '2026-03-05'
+keywords: 'Pomona College, HPC, SLURM, job scheduling, Sagehen, research computing'
+life_cycle: 'stable'
+license: 'CC-BY 4.0'
+source: 'https://github.com/pomona-college-hpc/slurm-scheduling'
+branch: 'main'
+contact: 'its-hpc@pomona.edu'
+episodes:
+- 01-intro-slurm.md
+- 02-partitions-resources.md
+- 03-requesting-resources.md
+- 04-interactive-jobs.md
+- 05-writing-batch-scripts.md
+- 06-batch-job-submission.md
+- 07-monitoring-jobs.md
+- 08-managing-canceling-jobs.md
+- 09-gpu-job-basics.md
+- 10-advanced-gpu-workflows.md
+- 11-job-arrays-dependencies.md
+- 12-advanced-tips.md
+learners:
+- setup.md
+- reference.md
+instructors:
+- instructor-notes.md
+profiles:
+- learner-profiles.md
