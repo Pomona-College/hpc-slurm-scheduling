@@ -35,6 +35,7 @@ nvidia-smi dmon                     # Continuous monitoring
 ```
 
 Key metrics:
+
 - **GPU-Util**: Should be above 80% for well-utilized GPU jobs
 - **Memory-Usage**: How much of GPU memory is consumed
 - **Power**: Higher power = busier GPU
@@ -84,7 +85,7 @@ model.fit(x_train, y_train, epochs=10)
 #SBATCH --mem=128G
 #SBATCH --time=12:00:00
 
-module load cuda python/3.11
+module load cuda miniconda3
 
 python -m torch.distributed.launch \
     --nproc_per_node=2 \
@@ -104,7 +105,7 @@ Your model or data exceeds GPU memory.
 python train.py --batch_size 64    # Was 256
 
 # Or request a larger GPU
-#SBATCH --gres=gpu:a100:1          # 80 GB instead of V100's 16 GB
+#SBATCH --gres=gpu:a100:1          # 80 GB instead of the L40S's 48 GB
 ```
 
 ### "GPU not detected" / `torch.cuda.is_available()` returns False
@@ -125,6 +126,7 @@ squeue -j $SLURM_JOB_ID --format=gres
 Causes: data loading bottleneck, code not on GPU, small batch size.
 
 Fixes:
+
 1. Add parallel data loading (`num_workers` in PyTorch DataLoader)
 2. Verify `.to(device)` or `.cuda()` in your code
 3. Increase batch size if GPU memory allows
@@ -155,7 +157,7 @@ Create a script that benchmarks GPU vs CPU matrix multiplication:
 #SBATCH --time=00:10:00
 #SBATCH --output=bench_%j.out
 
-module load cuda python/3.11
+module load cuda miniconda3
 
 python << 'EOF'
 import torch, time

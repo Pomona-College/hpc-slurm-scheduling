@@ -44,6 +44,7 @@ exercises: 10
 ## Don't Waste GPU Resources
 
 Before submitting a GPU job:
+
 1. Test on CPU first
 2. Run with `nvidia-smi` and check utilization
 3. If GPU utilization is below 50%, run on CPU instead
@@ -66,7 +67,7 @@ GPU nodes are expensive and limited. Wasting them slows everyone else down.
 ```bash
 #SBATCH --gres=gpu:1              # 1 GPU, any type (fastest to allocate)
 #SBATCH --gres=gpu:a100:1         # 1 A100 (80 GB, production)
-#SBATCH --gres=gpu:v100:1         # 1 V100 (16 GB, prototyping)
+#SBATCH --gres=gpu:l40s:1         # 1 L40S (48 GB, prototyping)
 #SBATCH --gres=gpu:l40s:1         # 1 L40S (48 GB, inference)
 #SBATCH --gres=gpu:2              # 2 GPUs, any type
 ```
@@ -76,7 +77,7 @@ GPU nodes are expensive and limited. Wasting them slows everyone else down.
 - **Starting a project**: `gpu:1` (let SLURM choose)
 - **Need lots of GPU memory**: `gpu:a100:1` (80 GB)
 - **Production training**: `gpu:a100:1` (fastest)
-- **Prototyping**: `gpu:v100:1` (most available)
+- **Prototyping**: `gpu:l40s:1` (most available)
 
 ## GPU Batch Script
 
@@ -90,13 +91,14 @@ GPU nodes are expensive and limited. Wasting them slows everyone else down.
 #SBATCH --time=12:00:00
 #SBATCH --output=train_%j.out
 
-module load cuda python/3.11
+module load cuda miniconda3
 source ~/ml_env/bin/activate
 
 python train.py --epochs 100 --batch_size 128
 ```
 
 Key points:
+
 - `--partition=gpu`: Must use the gpu partition
 - `--gres=gpu:a100:1`: Request the GPU
 - `--cpus-per-task=8`: GPUs still need CPU support threads
@@ -107,14 +109,14 @@ Key points:
 Test GPU code before submitting batch jobs:
 
 ```bash
-srun --partition=gpu --gres=gpu:v100:1 \
+srun --partition=gpu --gres=gpu:l40s:1 \
      --cpus-per-task=4 --mem=16G --time=00:30:00 \
      --pty bash -l
 ```
 
 Inside the session:
 ```bash
-module load cuda python/3.11
+module load cuda miniconda3
 python -c "import torch; print(torch.cuda.is_available())"
 ```
 
@@ -134,7 +136,7 @@ Create and submit a GPU test script:
 #SBATCH --time=00:05:00
 #SBATCH --output=gpu_%j.out
 
-module load cuda python/3.11
+module load cuda miniconda3
 
 python << 'EOF'
 import torch
@@ -164,7 +166,7 @@ Output should show `CUDA available: True`, the GPU model name, and a `torch.Size
 - Do not use GPUs for serial, I/O-bound, or light computational tasks
 - Request GPUs with `--gres=gpu:TYPE:N` (e.g., `--gres=gpu:a100:1`)
 - Always use `--partition=gpu` and `module load cuda` for GPU jobs
-- A100 for production, V100 for prototyping, L40S for inference
+- A100 for production, L40S for prototyping and inference, RTX PRO 6000 for large-memory work
 - Test GPU code interactively before submitting long batch jobs
 
 ::::::::::::::::::::::::::::::::::::::::::::::

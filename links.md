@@ -1,6 +1,6 @@
 [sagehen-cluster]: sagehen.hpc.pomona.edu
 [hpc-support]: its-hpc@pomona.edu
-[pomona-its]: https://www.pomona.edu/administration/information-technology-services
+[pomona-its]: https://www.pomona.edu/its/
 [slurm-homepage]: https://slurm.schedmd.com/
 [slurm-srun]: https://slurm.schedmd.com/srun.html
 [slurm-sbatch]: https://slurm.schedmd.com/sbatch.html
@@ -15,7 +15,6 @@
 [nvidia-cuda]: https://developer.nvidia.com/cuda-toolkit
 [nvidia-a100]: https://www.nvidia.com/en-us/data-center/a100/
 [nvidia-l40s]: https://www.nvidia.com/en-us/data-center/l40s/
-[nvidia-v100]: https://www.nvidia.com/en-us/data-center/v100/
 [nvidia-smi]: https://developer.nvidia.com/nvidia-system-management-interface
 [carpentries]: https://carpentries.org/
 [carpentries-workbench]: https://carpentries.github.io/workbench/

@@ -44,7 +44,7 @@ Batch jobs run unattended while you do other things. They are the backbone of re
 #SBATCH --output=slurm-%j.out
 #SBATCH --error=slurm-%j.err
 
-module load python/3.11
+module load miniconda3
 
 python my_analysis.py
 ```
@@ -96,7 +96,7 @@ SLURM sets useful variables inside your job:
 #SBATCH --partition=amd
 #SBATCH --output=analysis_%j.out
 
-module load python/3.11
+module load miniconda3
 python analysis.py
 ```
 
@@ -111,7 +111,7 @@ python analysis.py
 #SBATCH --partition=short
 #SBATCH --output=r_analysis_%j.out
 
-module load r/4.3
+module load r/4.5.1
 Rscript analysis.R
 ```
 
@@ -129,12 +129,14 @@ Quick R analyses with a short walltime are a good fit for the `short` partition.
 #SBATCH --gres=gpu:a100:1
 #SBATCH --output=train_%j.out
 
-module load cuda python/3.11
+module load cuda miniconda3
 source ~/ml_env/bin/activate
 python train.py --epochs 100
 ```
 
 ## Best Practices
+
+
 
 ### Stop on First Error
 
@@ -172,6 +174,7 @@ cp output.csv /rhome/$USER/results/
 ## Challenge 1: Write a Batch Script
 
 Create `simple_job.sh` that:
+
 1. Uses the `short` partition with 1 core and 1 GB RAM for 5 minutes
 2. Prints the hostname, job ID, and current date
 3. Sleeps for 10 seconds

@@ -45,14 +45,13 @@ For workloads requiring GPU acceleration.
 
 ### Available GPU Types
 
-Sagehen has 11 GPUs total (confirmed May 2026):
+Sagehen has 10 GPUs total (confirmed May 2026):
 
 | GPU Type | Memory | Quantity | Best For |
 |----------|--------|----------|----------|
 | NVIDIA A100 | 80 GB HBM2e | 4 | Large models, production AI |
 | NVIDIA L40S | 48 GB GDDR6 | 4 | Deep learning, inference |
-| NVIDIA V100 | 16 GB HBM2 | 1 | Development, prototyping |
-| NVIDIA A6000 | 48 GB GDDR6 ECC | 2 | Large-memory pro / mid-large training |
+| NVIDIA RTX PRO 6000 | 96 GB GDDR7 ECC | 2 | Largest memory on the cluster |
 
 Check availability: `sinfo -p gpu --Format=NodeList,Gres,GresUsed`
 
@@ -62,7 +61,7 @@ Check availability: `sinfo -p gpu --Format=NodeList,Gres,GresUsed`
 
 GPU nodes are expensive and limited:
 - Only request GPUs if your code actually uses them
-- Use V100 for prototyping, A100 for production
+- Use L40S for prototyping, A100 for production
 - Monitor GPU utilization with `nvidia-smi`
 - Request the minimum number you need
 
@@ -92,7 +91,7 @@ For short-duration test jobs, debugging, and rapid prototyping. The `short` part
 #SBATCH --output=test_%j.log
 
 module purge
-module load python/3.11.2
+module load miniconda3
 
 python my_script.py --dry-run
 ```
@@ -144,7 +143,7 @@ For each scenario, decide which partition to use:
 
 - Sagehen has three partitions: `amd` (general compute), `gpu` (accelerators), and `short` (quick / test / debug jobs)
 - Choose partition based on GPU need and job duration
-- GPU partition offers A100 (production), L40S (inference), V100 (prototyping), and A6000 (large-memory training)
+- GPU partition offers A100 (production), L40S (inference), and RTX PRO 6000 (large-memory training)
 - Per-account resource limits apply; check with `quota_check.sh`
 - `amd` and `gpu` support up to 720 hours (30 days); `short` has a shorter walltime — check `sinfo -p short`
 

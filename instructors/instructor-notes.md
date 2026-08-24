@@ -99,7 +99,7 @@ Do this while explaining:
 srun -c 2 --mem=8G -t 00:10:00 -p short --pty bash -l
 # Wait for allocation
 hostname   # Show you're on a compute node now
-module load python/3.11
+module load miniconda3
 python -c "import sys; print(sys.version)"
 exit       # Back to head node
 ```
@@ -162,7 +162,7 @@ Then when complete, `cat test_12345.out` to show output file.
 
 - Challenge 2: Python in Batch
   - Show the numpy import and computation are realistic
-  - Emphasize: "This would fail if you forgot `module load python/3.11`"
+  - Emphasize: "This would fail if you forgot `module load miniconda3`"
   - Ask: "Would this have worked on your laptop?" → Probably slower
 
 - Challenge 3: GPU Batch (only if GPU partition available)
@@ -231,7 +231,7 @@ seff JOBID
 **Live Demo (if GPU access available)**:
 ```bash
 # Request interactive GPU session
-srun --gres=gpu:v100:1 -c 2 --mem=4G -t 00:05:00 -p gpu --pty bash -l
+srun --gres=gpu:l40s:1 -c 2 --mem=4G -t 00:05:00 -p gpu --pty bash -l
 
 # Check GPU is available
 module load cuda
@@ -414,7 +414,7 @@ If you have more time (4+ hours):
 | "How long until my job starts?" | Depends on queue; `amd` minutes to hours, `gpu` variable, `short` typically fastest because the scheduler can back-fill quickly |
 | "How do I cancel a job that's already running?" | `scancel JOBID`; output files written so far are kept |
 | "Why did my job timeout?" | You requested too little time. Check `seff` to see how long it actually needed |
-| "How do I share my results with lab-mates?" | Use `/bigdata/labname` shared storage |
+| "How do I share my results with lab-mates?" | Use `/bigdata/lab/<labname>` shared storage |
 | "Can I use a GPU for my Python code?" | Only if code uses PyTorch, TensorFlow, CuPy, or similar. Check with `nvidia-smi` |
 | "Can I run multiple jobs on one GPU?" | Not currently; future versions will support sharing |
 | "What if I hit my group's core limit?" | Your new jobs wait in queue until others finish |
@@ -456,3 +456,6 @@ After each workshop:
 **Good luck teaching! Your learners will leave ready to harness Sagehen's power.**
 
 For updates or corrections to these notes, contact its-hpc@pomona.edu.
+
+<!-- highlight <labname>/<myusername> placeholders in code blocks; remove if the varnish theme handles this natively -->
+<script>(function(){var CSS='.sh-placeholder{color:#c2410c;font-weight:700}[data-bs-theme="dark"] .sh-placeholder,html.dark .sh-placeholder{color:#fdba74}@media (prefers-color-scheme: dark){[data-bs-theme="auto"] .sh-placeholder{color:#fdba74}}';var RX=/<labname>|<myusername>/g;function firstMatch(el){var w=document.createTreeWalker(el,NodeFilter.SHOW_TEXT,null),nodes=[],full='';while(w.nextNode()){nodes.push({n:w.currentNode,s:full.length});full+=w.currentNode.nodeValue;}RX.lastIndex=0;var m;while((m=RX.exec(full))){var s=m.index,e=s+m[0].length,inSpan=false,parts=[];for(var j=0;j<nodes.length;j++){var ns=nodes[j].s,ne=ns+nodes[j].n.nodeValue.length;if(ne<=s||ns>=e)continue;parts.push({node:nodes[j].n,a:Math.max(s-ns,0),b:Math.min(e-ns,nodes[j].n.nodeValue.length)});var p=nodes[j].n.parentNode;while(p&&p!==el){if(p.classList&&p.classList.contains('sh-placeholder')){inSpan=true;break;}p=p.parentNode;}}if(!inSpan&&parts.length)return parts;}return null;}function wrapParts(parts){for(var i=parts.length-1;i>=0;i--){var t=parts[i].node,txt=t.nodeValue,a=parts[i].a,b=parts[i].b;var span=document.createElement('span');span.className='sh-placeholder';span.textContent=txt.slice(a,b);var f=document.createDocumentFragment();if(a>0)f.appendChild(document.createTextNode(txt.slice(0,a)));f.appendChild(span);if(b<txt.length)f.appendChild(document.createTextNode(txt.slice(b)));t.parentNode.replaceChild(f,t);}}function run(){var st=document.createElement('style');st.textContent=CSS;document.head.appendChild(st);document.querySelectorAll('pre,code').forEach(function(el){var guard=0,parts;while((parts=firstMatch(el))&&guard++<500){wrapParts(parts);}});}if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',run);}else{run();}})();</script>

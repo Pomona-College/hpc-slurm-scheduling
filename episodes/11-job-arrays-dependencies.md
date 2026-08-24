@@ -44,7 +44,7 @@ This submits 10 jobs, numbered 1 through 10.
 #SBATCH --partition=amd
 #SBATCH --output=sweep_%a.out
 
-module load python/3.11
+module load miniconda3
 
 LRS=(0.001 0.01 0.1 1.0)
 LR=${LRS[$((SLURM_ARRAY_TASK_ID - 1))]}

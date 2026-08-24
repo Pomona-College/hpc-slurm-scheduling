@@ -40,6 +40,8 @@ squeue --states=RUNNING      # Only running jobs
 squeue --states=PENDING      # Only pending jobs
 ```
 
+![Three running jobs as `squeue -u $USER` shows them — state `R`, elapsed time, and the node each landed on.](fig/07-squeue-user-running-jobs.png){alt='Terminal on Sagehen showing squeue output for one user. Three jobs named demo1, demo2, and demo3 run on the short partition in state R for 25 seconds each, on nodes a001 and a002.'}
+
 ### Useful Filters
 
 ```bash
@@ -70,6 +72,8 @@ sacct -u $USER --state=FAILED
 # Jobs from a specific date
 sacct -u $USER --starttime=2026-03-04
 ```
+
+![`sacct` history with exit codes: completed jobs show `0:0`, the deliberately failing job shows `FAILED 1:0` (this run added `--starttime=now-5minutes` to narrow the window).](fig/07-sacct-history-exitcodes.png){alt='Terminal output of sacct filtered to the last five minutes. Jobs 38366 through 38369 show state COMPLETED with exit code 0:0, while job 38370 named fail shows FAILED with exit code 1:0. Each job lists batch and extern steps with MaxRSS values.'}
 
 ### Understanding Exit Codes
 

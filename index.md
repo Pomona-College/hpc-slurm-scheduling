@@ -23,7 +23,7 @@ By the end of this workshop, you will be able to:
 **Sagehen** (sagehen.hpc.pomona.edu) is Pomona College's research computing cluster managed by Information Technology Services (ITS). The cluster features:
 
 - **Computing nodes**: AMD-based compute nodes with 128 CPUs and 500GB RAM each
-- **GPU nodes**: Specialized nodes with NVIDIA GPUs (A100, L40S, V100)
+- **GPU nodes**: Specialized nodes with NVIDIA GPUs (A100, L40S, RTX PRO 6000)
 - **Storage**: Home directories, shared lab storage, and high-speed scratch space
 - **Job scheduler**: SLURM (Simple Linux Utility for Resource Management)
 - **Multi-user environment**: Safe resource sharing among hundreds of researchers

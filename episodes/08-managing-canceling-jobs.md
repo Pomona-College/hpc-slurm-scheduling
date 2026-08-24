@@ -80,7 +80,7 @@ squeue -j JOBID -O jobid,reason
 
 ## Troubleshooting: Job Failures
 
-### TIMEOUT (exit code 138)
+### TIMEOUT (exit code 143)
 
 Job exceeded the `--time` limit.
 
@@ -120,7 +120,7 @@ Ensure your shebang has the `-l` flag:
 Or explicitly source the module environment:
 ```bash
 source /etc/profile
-module load python/3.11
+module load miniconda3
 ```
 
 ::::::::::::::::::::::::::::::::::::: challenge

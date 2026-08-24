@@ -64,7 +64,7 @@ The head node has only 2 CPU threads and 8 GB of RAM. Running compute jobs there
 | Partition | Specs | Max Time | Best For |
 |-----------|-------|----------|----------|
 | amd | See `sinfo -p amd` for current configuration | 30 days | General compute |
-| gpu | 11 GPUs across multiple nodes (4× A100, 4× L40S, 1× V100, 2× A6000; see Workshop 16) | 30 days | ML, GPU-accelerated work |
+| gpu | 10 GPUs across multiple nodes (4× A100, 4× L40S, 2× RTX PRO 6000; see Workshop 16) | 30 days | ML, GPU-accelerated work |
 | short | See `sinfo -p short` for current configuration | Shorter max walltime than amd/gpu | Quick test jobs, debugging, rapid prototyping |
 
 ## The SLURM Job Lifecycle
@@ -94,7 +94,7 @@ The head node has only 2 CPU threads and 8 GB of RAM. Running compute jobs there
 
 Connect to Sagehen and explore its structure.
 
-1. Connect: `ssh username@sagehen.hpc.pomona.edu`
+1. Connect: `ssh <myusername>@sagehen.hpc.pomona.edu`
 2. Complete DUO MFA authentication
 3. Check the head node:
    ```bash
@@ -128,3 +128,6 @@ You should see `sagehen` from `hostname`, `2` from `nproc`, and ~8 GB from `free
 - SLURM enforces fair access through queuing, resource limits, and priorities
 
 ::::::::::::::::::::::::::::::::::::::::::::::
+
+<!-- highlight <labname>/<myusername> placeholders in code blocks; remove if the varnish theme handles this natively -->
+<script>(function(){var CSS='.sh-placeholder{color:#c2410c;font-weight:700}[data-bs-theme="dark"] .sh-placeholder,html.dark .sh-placeholder{color:#fdba74}@media (prefers-color-scheme: dark){[data-bs-theme="auto"] .sh-placeholder{color:#fdba74}}';var RX=/<labname>|<myusername>/g;function firstMatch(el){var w=document.createTreeWalker(el,NodeFilter.SHOW_TEXT,null),nodes=[],full='';while(w.nextNode()){nodes.push({n:w.currentNode,s:full.length});full+=w.currentNode.nodeValue;}RX.lastIndex=0;var m;while((m=RX.exec(full))){var s=m.index,e=s+m[0].length,inSpan=false,parts=[];for(var j=0;j<nodes.length;j++){var ns=nodes[j].s,ne=ns+nodes[j].n.nodeValue.length;if(ne<=s||ns>=e)continue;parts.push({node:nodes[j].n,a:Math.max(s-ns,0),b:Math.min(e-ns,nodes[j].n.nodeValue.length)});var p=nodes[j].n.parentNode;while(p&&p!==el){if(p.classList&&p.classList.contains('sh-placeholder')){inSpan=true;break;}p=p.parentNode;}}if(!inSpan&&parts.length)return parts;}return null;}function wrapParts(parts){for(var i=parts.length-1;i>=0;i--){var t=parts[i].node,txt=t.nodeValue,a=parts[i].a,b=parts[i].b;var span=document.createElement('span');span.className='sh-placeholder';span.textContent=txt.slice(a,b);var f=document.createDocumentFragment();if(a>0)f.appendChild(document.createTextNode(txt.slice(0,a)));f.appendChild(span);if(b<txt.length)f.appendChild(document.createTextNode(txt.slice(b)));t.parentNode.replaceChild(f,t);}}function run(){var st=document.createElement('style');st.textContent=CSS;document.head.appendChild(st);document.querySelectorAll('pre,code').forEach(function(el){var guard=0,parts;while((parts=firstMatch(el))&&guard++<500){wrapParts(parts);}});}if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',run);}else{run();}})();</script>

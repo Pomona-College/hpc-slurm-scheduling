@@ -153,7 +153,7 @@ set -e
 
 echo "Job started at $(date) on $(hostname), ID: $SLURM_JOB_ID"
 
-module load python/3.11
+module load miniconda3
 WORK_DIR=/scratch/$SLURM_JOB_USER/$SLURM_JOB_ID
 mkdir -p $WORK_DIR && cd $WORK_DIR
 

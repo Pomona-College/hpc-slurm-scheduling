@@ -42,7 +42,7 @@ sagehen.hpc.pomona.edu
 1. Open Terminal
 2. Connect to Sagehen:
    ```bash
-   ssh username@sagehen.hpc.pomona.edu
+   ssh <myusername>@sagehen.hpc.pomona.edu
    ```
    Replace `username` with your Pomona username (part before @pomona.edu)
 
@@ -61,7 +61,7 @@ sagehen.hpc.pomona.edu
 1. Open PowerShell (search for "PowerShell" in Start menu)
 2. Connect to Sagehen:
    ```powershell
-   ssh username@sagehen.hpc.pomona.edu
+   ssh <myusername>@sagehen.hpc.pomona.edu
    ```
 
 **Option B: Use WSL (Windows Subsystem for Linux)**
@@ -70,7 +70,7 @@ sagehen.hpc.pomona.edu
 2. Open WSL terminal
 3. Connect to Sagehen:
    ```bash
-   ssh username@sagehen.hpc.pomona.edu
+   ssh <myusername>@sagehen.hpc.pomona.edu
    ```
 
 **Option C: Use PuTTY**
@@ -123,7 +123,7 @@ If you've lost access to Duo, you can use a backup code (if you saved one earlie
 After authenticating with Duo, you should see:
 
 ```
-[username@sagehen ~]$
+[<myusername>@sagehen ~]$
 ```
 
 Great! You're connected to the head node.
@@ -166,7 +166,7 @@ alias sa='sacct -u $USER'
 alias ll='ls -lah'
 
 # Set up your favorite modules to auto-load
-module load python/3.11  # Load by default
+module load miniconda3  # Load by default
 ```
 
 Save with Ctrl+O, Enter, Ctrl+X.
@@ -214,7 +214,7 @@ ssh alice@sagehen.hpc.pomona.edu
 **Solution**: Use the module system. See Episode 4 for details.
 
 ```bash
-module load python/3.11
+module load miniconda3
 python --version
 ```
 
@@ -253,7 +253,10 @@ Remember:
 - [ ] SSH connection works
 - [ ] DUO authentication completes
 - [ ] You can run `sinfo` to see cluster status
-- [ ] You see the bash prompt: `[username@sagehen ~]$`
-- [ ] You can load a module: `module load python/3.11`
+- [ ] You see the bash prompt: `[<myusername>@sagehen ~]$`
+- [ ] You can load a module: `module load miniconda3`
 
 Once all these work, proceed to the first episode!
+
+<!-- highlight <labname>/<myusername> placeholders in code blocks; remove if the varnish theme handles this natively -->
+<script>(function(){var CSS='.sh-placeholder{color:#c2410c;font-weight:700}[data-bs-theme="dark"] .sh-placeholder,html.dark .sh-placeholder{color:#fdba74}@media (prefers-color-scheme: dark){[data-bs-theme="auto"] .sh-placeholder{color:#fdba74}}';var RX=/<labname>|<myusername>/g;function firstMatch(el){var w=document.createTreeWalker(el,NodeFilter.SHOW_TEXT,null),nodes=[],full='';while(w.nextNode()){nodes.push({n:w.currentNode,s:full.length});full+=w.currentNode.nodeValue;}RX.lastIndex=0;var m;while((m=RX.exec(full))){var s=m.index,e=s+m[0].length,inSpan=false,parts=[];for(var j=0;j<nodes.length;j++){var ns=nodes[j].s,ne=ns+nodes[j].n.nodeValue.length;if(ne<=s||ns>=e)continue;parts.push({node:nodes[j].n,a:Math.max(s-ns,0),b:Math.min(e-ns,nodes[j].n.nodeValue.length)});var p=nodes[j].n.parentNode;while(p&&p!==el){if(p.classList&&p.classList.contains('sh-placeholder')){inSpan=true;break;}p=p.parentNode;}}if(!inSpan&&parts.length)return parts;}return null;}function wrapParts(parts){for(var i=parts.length-1;i>=0;i--){var t=parts[i].node,txt=t.nodeValue,a=parts[i].a,b=parts[i].b;var span=document.createElement('span');span.className='sh-placeholder';span.textContent=txt.slice(a,b);var f=document.createDocumentFragment();if(a>0)f.appendChild(document.createTextNode(txt.slice(0,a)));f.appendChild(span);if(b<txt.length)f.appendChild(document.createTextNode(txt.slice(b)));t.parentNode.replaceChild(f,t);}}function run(){var st=document.createElement('style');st.textContent=CSS;document.head.appendChild(st);document.querySelectorAll('pre,code').forEach(function(el){var guard=0,parts;while((parts=firstMatch(el))&&guard++<500){wrapParts(parts);}});}if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',run);}else{run();}})();</script>

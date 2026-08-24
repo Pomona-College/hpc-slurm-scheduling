@@ -79,7 +79,7 @@ If you finish early, just `exit` to free resources. If time runs out, your sessi
 Load modules and run code just like on your laptop:
 
 ```bash
-[user@compute-node ~]$ module load python/3.11
+[user@compute-node ~]$ module load miniconda3
 [user@compute-node ~]$ python my_analysis.py
 ```
 
@@ -120,7 +120,7 @@ tmux new-session -s work
    ```
 3. Load Python and run a quick test:
    ```bash
-   module load python/3.11
+   module load miniconda3
    python -c "import numpy as np; print(np.random.randn(5))"
    ```
 4. Exit: `exit`

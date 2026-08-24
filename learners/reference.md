@@ -10,7 +10,7 @@ This is a handy cheat sheet for common SLURM commands. Print it out or bookmark 
 
 ```bash
 # Connect to Sagehen
-ssh username@sagehen.hpc.pomona.edu
+ssh <myusername>@sagehen.hpc.pomona.edu
 
 # Check you're on head node
 hostname  # Should show "sagehen"
@@ -19,10 +19,10 @@ hostname  # Should show "sagehen"
 module avail
 
 # Load a module
-module load python/3.11
+module load miniconda3
 
 # Load multiple modules
-module load python/3.11 cuda r/4.3
+module load miniconda3 cuda r/4.5.1
 ```
 
 ## Cluster Information
@@ -179,7 +179,7 @@ python script.py --output results_${SLURM_JOB_ID}.csv
 
 ```
 amd:      see `sinfo -p amd` for current configuration; 30-day max job time
-gpu:      11 GPUs across multiple nodes (4× A100, 4× L40S, 1× V100, 2× A6000), 30-day limit (see Workshop 16 for full hardware breakdown)
+gpu:      10 GPUs across multiple nodes (4× A100, 4× L40S, 2× RTX PRO 6000), 30-day limit (see Workshop 16 for full hardware breakdown)
 short:    see `sinfo -p short` for current configuration; shorter max walltime (good for quick test/debug jobs and rapid prototyping)
 ```
 
@@ -187,7 +187,7 @@ short:    see `sinfo -p short` for current configuration; shorter max walltime (
 
 ```bash
 /rhome/$USER              # Home directory; /rhome and /bigdata share a single 1 TB lab quota on BeeGFS (check usage with quota_check.sh)
-/bigdata/labname          # Lab shared storage; shared 1 TB quota with /rhome
+/bigdata/lab/<labname>          # Lab shared storage; shared 1 TB quota with /rhome
 /scratch/$USER/$JOBID     # Fast job scratch (auto-deleted when job completes)
 /tmpfs/$USER/$JOBID       # RAM-based temp (auto-deleted when job completes)
 ```
@@ -197,7 +197,7 @@ short:    see `sinfo -p short` for current configuration; shorter max walltime (
 ```bash
 module avail              # List all available modules
 module avail python       # Find Python versions
-module load python/3.11   # Load specific module
+module load miniconda3   # Load specific module
 module list               # Show loaded modules
 module unload python      # Unload a module
 module purge              # Unload all modules
@@ -304,7 +304,7 @@ Visit episodes/ folder for full documentation
 #SBATCH --mail-type=END,FAIL
 
 # Load environment
-module load python/3.11
+module load miniconda3
 
 # Your code here
 python analysis.py
@@ -316,3 +316,6 @@ Save as `job.sh` and submit with: `sbatch job.sh`
 
 **Last Updated**: March 2026
 **For more details**: See the full workshop episodes
+
+<!-- highlight <labname>/<myusername> placeholders in code blocks; remove if the varnish theme handles this natively -->
+<script>(function(){var CSS='.sh-placeholder{color:#c2410c;font-weight:700}[data-bs-theme="dark"] .sh-placeholder,html.dark .sh-placeholder{color:#fdba74}@media (prefers-color-scheme: dark){[data-bs-theme="auto"] .sh-placeholder{color:#fdba74}}';var RX=/<labname>|<myusername>/g;function firstMatch(el){var w=document.createTreeWalker(el,NodeFilter.SHOW_TEXT,null),nodes=[],full='';while(w.nextNode()){nodes.push({n:w.currentNode,s:full.length});full+=w.currentNode.nodeValue;}RX.lastIndex=0;var m;while((m=RX.exec(full))){var s=m.index,e=s+m[0].length,inSpan=false,parts=[];for(var j=0;j<nodes.length;j++){var ns=nodes[j].s,ne=ns+nodes[j].n.nodeValue.length;if(ne<=s||ns>=e)continue;parts.push({node:nodes[j].n,a:Math.max(s-ns,0),b:Math.min(e-ns,nodes[j].n.nodeValue.length)});var p=nodes[j].n.parentNode;while(p&&p!==el){if(p.classList&&p.classList.contains('sh-placeholder')){inSpan=true;break;}p=p.parentNode;}}if(!inSpan&&parts.length)return parts;}return null;}function wrapParts(parts){for(var i=parts.length-1;i>=0;i--){var t=parts[i].node,txt=t.nodeValue,a=parts[i].a,b=parts[i].b;var span=document.createElement('span');span.className='sh-placeholder';span.textContent=txt.slice(a,b);var f=document.createDocumentFragment();if(a>0)f.appendChild(document.createTextNode(txt.slice(0,a)));f.appendChild(span);if(b<txt.length)f.appendChild(document.createTextNode(txt.slice(b)));t.parentNode.replaceChild(f,t);}}function run(){var st=document.createElement('style');st.textContent=CSS;document.head.appendChild(st);document.querySelectorAll('pre,code').forEach(function(el){var guard=0,parts;while((parts=firstMatch(el))&&guard++<500){wrapParts(parts);}});}if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',run);}else{run();}})();</script>

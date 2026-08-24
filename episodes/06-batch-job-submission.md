@@ -181,7 +181,7 @@ Setting `--mem` to the maximum because you do not know what the job needs. This 
 
 Mixing tabs and spaces in the SLURM directives. Some directives parse silently incorrectly. Stick to spaces.
 
-Forgetting to load required modules inside the script. The login-node environment does not carry over. Always include `module load python/3.11` (or whatever you need) at the top of the script.
+Forgetting to load required modules inside the script. The login-node environment does not carry over. Always include `module load miniconda3` (or whatever you need) at the top of the script.
 
 Submitting from `/scratch`. Output files go to the submission directory. Submit from `/rhome` so logs persist after the job's scratch is cleaned.
 
@@ -209,7 +209,7 @@ Submitting from `/scratch`. Output files go to the submission directory. Submit 
    #SBATCH --partition=short
    #SBATCH --output=analysis_%j.out
 
-   module load python/3.11
+   module load miniconda3
    python analysis.py
    ```
 
@@ -246,7 +246,7 @@ Explain in plain English what the REASON column means and one thing they could d
 
 `(Resources)` means the GPU partition has no node currently available that matches the job's requirements. SLURM is just waiting for a GPU node to free up.
 
-Two reasonable responses: wait it out (queues clear naturally), or run `squeue -p gpu --start` to see estimated start times for all pending GPU jobs and decide if it is worth waiting. If the job needs an A100 specifically, switching to `--gres=gpu:l40s:1` or `--gres=gpu:v100:1` will likely start sooner because those GPUs are less oversubscribed.
+Two reasonable responses: wait it out (queues clear naturally), or run `squeue -p gpu --start` to see estimated start times for all pending GPU jobs and decide if it is worth waiting. If the job needs an A100 specifically, switching to `--gres=gpu:l40s:1` or `--gres=gpu:l40s:1` will likely start sooner because those GPUs are less oversubscribed.
 
 :::::::::::::::::::::::::::::::::::::
 :::::::::::::::::::::::::::::::::::::
