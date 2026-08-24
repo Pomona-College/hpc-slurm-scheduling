@@ -258,4 +258,4 @@ Remember: All three profiles (and others!) are valuable and welcome. The goal is
 
 - See [Instructor Notes](../instructors/instructor-notes.md) for teaching strategy
 - See individual episodes for specific learning objectives
-- See [Setup Guide](../learners/setup.md) for account and access issues
+- See [Setup Guide](setup.md) for account and access issues
