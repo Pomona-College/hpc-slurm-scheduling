@@ -107,8 +107,8 @@ improvements specific to the Sagehen HPC cluster or Pomona College context, plea
 contact its-hpc@pomona.edu directly. Upstream Carpentries community links below
 remain for general lesson-development guidance and CC-BY 4.0 attribution.
 
-[repo]: https://github.com/pomona-college-hpc/slurm-scheduling
-[repo-issues]: https://github.com/pomona-college-hpc/slurm-scheduling/issues
+[repo]: https://github.com/Pomona-College/hpc-slurm-scheduling
+[repo-issues]: https://github.com/Pomona-College/hpc-slurm-scheduling/issues
 [contact]: mailto:its-hpc@pomona.edu
 [cp-site]: https://carpentries.org/
 [dc-issues]: https://github.com/issues?q=user%3Adatacarpentry
