@@ -233,7 +233,7 @@ If you encounter issues:
 
 1. **Technical problems**: Email its-hpc@pomona.edu
 2. **Questions about this workshop**: Ask your instructor
-3. **Job failures**: Check [Episode 5: Monitoring and Managing](../episodes/05-monitoring-managing.md) for troubleshooting
+3. **Job failures**: Check [Episode 7: Monitoring Jobs](../episodes/07-monitoring-jobs.md) for troubleshooting
 
 ## Important Reminders
 
