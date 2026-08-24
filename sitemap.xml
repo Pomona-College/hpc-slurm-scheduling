@@ -46,6 +46,12 @@
     <loc>https://pomona-college.github.io/hpc-slurm-scheduling/LICENSE.html</loc>
   </url>
   <url>
+    <loc>https://pomona-college.github.io/hpc-slurm-scheduling/aio.html</loc>
+  </url>
+  <url>
+    <loc>https://pomona-college.github.io/hpc-slurm-scheduling/images.html</loc>
+  </url>
+  <url>
     <loc>https://pomona-college.github.io/hpc-slurm-scheduling/index.html</loc>
   </url>
   <url>
@@ -94,13 +100,31 @@
     <loc>https://pomona-college.github.io/hpc-slurm-scheduling/instructor/LICENSE.html</loc>
   </url>
   <url>
+    <loc>https://pomona-college.github.io/hpc-slurm-scheduling/instructor/aio.html</loc>
+  </url>
+  <url>
+    <loc>https://pomona-college.github.io/hpc-slurm-scheduling/instructor/images.html</loc>
+  </url>
+  <url>
     <loc>https://pomona-college.github.io/hpc-slurm-scheduling/instructor/index.html</loc>
+  </url>
+  <url>
+    <loc>https://pomona-college.github.io/hpc-slurm-scheduling/instructor/instructor-notes.html</loc>
+  </url>
+  <url>
+    <loc>https://pomona-college.github.io/hpc-slurm-scheduling/instructor/key-points.html</loc>
   </url>
   <url>
     <loc>https://pomona-college.github.io/hpc-slurm-scheduling/instructor/profiles.html</loc>
   </url>
   <url>
     <loc>https://pomona-college.github.io/hpc-slurm-scheduling/instructor/reference.html</loc>
+  </url>
+  <url>
+    <loc>https://pomona-college.github.io/hpc-slurm-scheduling/instructor-notes.html</loc>
+  </url>
+  <url>
+    <loc>https://pomona-college.github.io/hpc-slurm-scheduling/key-points.html</loc>
   </url>
   <url>
     <loc>https://pomona-college.github.io/hpc-slurm-scheduling/profiles.html</loc>
