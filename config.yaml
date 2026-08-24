@@ -1,5 +1,6 @@
 carpentry: 'incubator'
 title: 'SLURM Job Scheduling on Sagehen — Pomona College HPC Workshop Series'
+description: 'Scheduling work on Sagehen with SLURM: partitions, resource requests, batch and interactive jobs, monitoring and troubleshooting.'
 created: '2026-03-05'
 keywords: 'Pomona College, HPC, SLURM, job scheduling, Sagehen, research computing'
 life_cycle: 'stable'
