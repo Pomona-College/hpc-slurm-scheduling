@@ -77,3 +77,9 @@ This workshop is built using The Carpentries Workbench, a modern lesson developm
 ---
 
 **Ready to get started?** Begin with [Episode 1: Introduction to SLURM](episodes/01-intro-slurm.md).
+
+## Acknowledgments
+
+Developed by **Andrew Wilson**, Director of Research Computing and Digital
+Scholarship at Pomona College, with **Andrei Motchenko**, who tested, edited
+and produced screenshots for the workshop series.
