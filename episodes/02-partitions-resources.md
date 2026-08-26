@@ -6,7 +6,7 @@ exercises: 10
 
 :::::::::::::::::::::::::::::::::::::: questions
 
-- What partitions are available on Sagehen?
+- What partitions are available on Sagehen HPC?
 - How do I choose the right partition for my job?
 - What GPU types are available?
 

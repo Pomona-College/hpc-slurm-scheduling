@@ -40,7 +40,7 @@ squeue --states=RUNNING      # Only running jobs
 squeue --states=PENDING      # Only pending jobs
 ```
 
-![Three running jobs as `squeue -u $USER` shows them — state `R`, elapsed time, and the node each landed on.](fig/07-squeue-user-running-jobs.png){alt='Terminal on Sagehen showing squeue output for one user. Three jobs named demo1, demo2, and demo3 run on the short partition in state R for 25 seconds each, on nodes a001 and a002.'}
+![Three running jobs as `squeue -u $USER` shows them — state `R`, elapsed time, and the node each landed on.](fig/07-squeue-user-running-jobs.png){alt='Terminal on Sagehen HPC showing squeue output for one user. Three jobs named demo1, demo2, and demo3 run on the short partition in state R for 25 seconds each, on nodes a001 and a002.'}
 
 ### Useful Filters
 
@@ -124,7 +124,7 @@ logout             # Return to head node
 
 ## Disk Usage on BeeGFS
 
-Use `quota_check.sh` to check storage usage on Sagehen's BeeGFS filesystem. The standard `du` command does not work correctly for quota checks.
+Use `quota_check.sh` to check storage usage on Sagehen HPC's BeeGFS filesystem. The standard `du` command does not work correctly for quota checks.
 
 :::::::::::::::::::::::::::::::::::::::::::::::
 

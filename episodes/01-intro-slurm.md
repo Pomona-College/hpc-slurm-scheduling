@@ -15,7 +15,7 @@ exercises: 5
 ::::::::::::::::::::::::::::::::::::: objectives
 
 - Understand the purpose of job schedulers in shared computing environments
-- Learn the basic architecture of Sagehen
+- Learn the basic architecture of Sagehen HPC
 - Distinguish between head nodes and compute nodes
 - Understand the SLURM job lifecycle
 
@@ -43,7 +43,7 @@ Without a scheduler, researchers would need to manually coordinate who runs what
 - **Partitions**: Logical groupings of nodes with different characteristics
 - **Resources**: What you request for your job (CPU cores, memory, time, GPUs)
 
-## The Sagehen Cluster Architecture
+## The Sagehen HPC Cluster Architecture
 
 ### Head Node
 
@@ -90,7 +90,7 @@ The head node has only 2 CPU threads and 8 GB of RAM. Running compute jobs there
 
 ::::::::::::::::::::::::::::::::::::: challenge
 
-## Challenge 1: Exploring Sagehen
+## Challenge 1: Exploring Sagehen HPC
 
 Connect to Sagehen and explore its structure.
 

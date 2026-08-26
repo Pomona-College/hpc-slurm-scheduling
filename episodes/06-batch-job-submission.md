@@ -25,7 +25,7 @@ exercises: 15
 
 ## Why Batch Submission Is the Right Default
 
-The shell prompt on the Sagehen login node is convenient but not where your real work belongs. Login nodes are shared and intentionally constrained: a long calculation on the login node steals resources from every other user trying to edit, transfer, or schedule. Batch submission moves your work to the compute partition where SLURM can give it dedicated CPU, memory, and time, and where your job survives if you close your laptop.
+The shell prompt on the Sagehen HPC login node is convenient but not where your real work belongs. Login nodes are shared and intentionally constrained: a long calculation on the login node steals resources from every other user trying to edit, transfer, or schedule. Batch submission moves your work to the compute partition where SLURM can give it dedicated CPU, memory, and time, and where your job survives if you close your laptop.
 
 The pattern is consistent: you write a short shell script that includes both SLURM directives (lines starting with `#SBATCH`) and the commands to run, then submit it with `sbatch`. SLURM puts the job in queue, runs it when resources are available, and writes its stdout and stderr to files in your current directory.
 

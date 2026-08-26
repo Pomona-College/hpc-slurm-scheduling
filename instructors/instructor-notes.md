@@ -225,7 +225,7 @@ seff JOBID
 - GPUs are expensive; only use if your code actually benefits
 - `--gres=gpu:1` is how you request GPUs
 - `nvidia-smi` is your GPU diagnostic tool
-- The three GPU types on Sagehen have different characteristics
+- The three GPU types on Sagehen HPC have different characteristics
 - Not all jobs have access to GPU partition (verify first)
 
 **Live Demo (if GPU access available)**:

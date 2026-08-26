@@ -1,5 +1,5 @@
 ---
-title: SLURM Job Scheduling on Sagehen
+title: SLURM Job Scheduling on Sagehen HPC
 ---
 
 ## Welcome to Workshop 9: SLURM Job Scheduling on Sagehen
