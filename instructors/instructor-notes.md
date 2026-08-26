@@ -299,7 +299,7 @@ nvidia-smi
 | 1:50-2:00 | Wrap-up, Q&A, next steps | 10 min |
 
 **Full day workshop** (3-4 hours):
-- Teach all 7 episodes in order
+- Teach all 12 episodes in order
 - Do 1-2 challenges per episode
 - Allow more hands-on time
 - Time for one-on-one troubleshooting
