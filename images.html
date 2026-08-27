@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<title>SLURM Job Scheduling on Sagehen — Pomona College HPC Workshop Series: All Images</title>
+<title>SLURM Job Scheduling on Sagehen HPC — Pomona College HPC Workshop Series: All Images</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="assets/themetoggle.js"></script><link rel="stylesheet" type="text/css" href="assets/styles.css">
 <script src="assets/scripts.js" type="text/javascript"></script><!-- mathjax --><!-- NOTE: https://docs.mathjax.org/en/latest/output/mathml.html#mathml-support --><!-- Changes from V2 to V4: https://mathjax.github.io/MathJax-demos-web/convert-configuration/convert-configuration.html
@@ -90,7 +90,7 @@
       <img class="small-logo" alt="Carpentries Incubator" src="assets/images/incubator-logo-sm.svg">
 </div>
     <div class="lesson-title-md">
-      SLURM Job Scheduling on Sagehen — Pomona College HPC Workshop Series
+      SLURM Job Scheduling on Sagehen HPC — Pomona College HPC Workshop Series
     </div>
     <div class="search-icon-sm">
       <!-- TODO: do not show until we have search
@@ -101,7 +101,7 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 <li class="nav-item">
           <span class="lesson-title">
-            SLURM Job Scheduling on Sagehen — Pomona College HPC Workshop Series
+            SLURM Job Scheduling on Sagehen HPC — Pomona College HPC Workshop Series
           </span>
         </li>
         <li class="nav-item">
@@ -215,7 +215,7 @@
                   <div class="accordion accordion-flush" id="accordionFlush1">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading1">
-        <a href="index.html">SLURM Job Scheduling on Sagehen</a>
+        <a href="index.html">SLURM Job Scheduling on Sagehen HPC</a>
     </div>
 <!--/div.accordion-header-->
 
@@ -423,20 +423,45 @@
         <h1>All Images</h1>
         
 <section id="01-intro-slurm"><h2 class="section-heading"><a href="01-intro-slurm.html">Introduction to SLURM</a></h2>
-<hr class="half-width"></section><section id="02-partitions-resources"><h2 class="section-heading"><a href="02-partitions-resources.html">Partitions and Resources</a></h2>
-<hr class="half-width"></section><section id="03-requesting-resources"><h2 class="section-heading"><a href="03-requesting-resources.html">Requesting Resources</a></h2>
-<hr class="half-width"></section><section id="04-interactive-jobs"><h2 class="section-heading"><a href="04-interactive-jobs.html">Interactive Jobs</a></h2>
+<hr class="half-width">
+<h3 id="01-intro-slurm-figure-1">Figure 1</h3>
+<p aria-hidden="true">Image 1 of 1: ‘Diagram of Sagehen HPC. Your laptop connects by SSH to the head node at sagehen.hpc.pomona.edu, which is for login and job submission only. From there SLURM dispatches work to three partitions: amd, the default, with 12 nodes a001 to a012 of 128 cores and 500 GB each and up to 720 hours; gpu, with 10 GPUs in total made up of four A100 80GB, four L40S 48GB and two RTX PRO 6000 96GB; and short, which shares the amd nodes, is capped at 2 hours and starts almost immediately. Below, shared storage visible from every node: /rhome with 100 GB per user backed up, /bigdata/lab per lab with 1 TB backed up, and /scratch node-local SSD deleted at job end.’</p>
+<figure><img src="fig/02-cluster-architecture.png" alt="Diagram of Sagehen HPC. Your laptop connects by SSH to the head node at sagehen.hpc.pomona.edu, which is for login and job submission only. From there SLURM dispatches work to three partitions: amd, the default, with 12 nodes a001 to a012 of 128 cores and 500 GB each and up to 720 hours; gpu, with 10 GPUs in total made up of four A100 80GB, four L40S 48GB and two RTX PRO 6000 96GB; and short, which shares the amd nodes, is capped at 2 hours and starts almost immediately. Below, shared storage visible from every node: /rhome with 100 GB per user backed up, /bigdata/lab per lab with 1 TB backed up, and /scratch node-local SSD deleted at job end." class="figure mx-auto d-block"><div class="figcaption">The head node takes your submission; SLURM
+decides which compute node actually runs it.</div>
+</figure><hr>
+<h3 id="01-intro-slurm-figure-2">Figure 2</h3>
+<p aria-hidden="true">Image 1 of 1: ‘A job submitted with sbatch enters the PENDING state while it waits for free CPUs or a GPU, for your other jobs to finish, or for the partition limits to allow it. It then moves to RUNNING while the script executes on a compute node. From there it ends as COMPLETED with exit code zero, FAILED with a non-zero exit, or CANCELLED by scancel or a timeout. All three can be checked with sacct -j jobid.’</p>
+<figure><img src="fig/01-job-lifecycle.png" alt="A job submitted with sbatch enters the PENDING state while it waits for free CPUs or a GPU, for your other jobs to finish, or for the partition limits to allow it. It then moves to RUNNING while the script executes on a compute node. From there it ends as COMPLETED with exit code zero, FAILED with a non-zero exit, or CANCELLED by scancel or a timeout. All three can be checked with sacct -j jobid." class="figure mx-auto d-block"><div class="figcaption">Every job ends in one of three states, and sacct
+will tell you which.</div>
+</figure><hr></section><section id="02-partitions-resources"><h2 class="section-heading"><a href="02-partitions-resources.html">Partitions and Resources</a></h2>
+<hr class="half-width">
+<h3 id="02-partitions-resources-figure-1">Figure 1</h3>
+<p aria-hidden="true">Image 1 of 1: ‘A decision tree for choosing a partition. If you need a GPU, use the gpu partition with four A100 80GB, four L40S 48GB and two RTX PRO 6000 96GB cards, allowing up to 720 hours. If not, ask whether the job will finish in under two hours; if it will, use short, which shares the amd nodes and starts almost immediately. Otherwise use amd, the default, with 12 nodes of 128 cores and 500 GB each and up to 720 hours.’</p>
+<figure><img src="fig/03-partition-decision.png" alt="A decision tree for choosing a partition. If you need a GPU, use the gpu partition with four A100 80GB, four L40S 48GB and two RTX PRO 6000 96GB cards, allowing up to 720 hours. If not, ask whether the job will finish in under two hours; if it will, use short, which shares the amd nodes and starts almost immediately. Otherwise use amd, the default, with 12 nodes of 128 cores and 500 GB each and up to 720 hours." class="figure mx-auto d-block"><div class="figcaption">Two questions settle it: do you need a GPU, and
+will the job finish inside two hours?</div>
+</figure><hr></section><section id="03-requesting-resources"><h2 class="section-heading"><a href="03-requesting-resources.html">Requesting Resources</a></h2>
+<hr class="half-width">
+<h3 id="03-requesting-resources-figure-1">Figure 1</h3>
+<p aria-hidden="true">Image 1 of 1: ‘Four SLURM flags and guidance for each. --cpus-per-task: start at 1 and only raise it if your code actually uses more than one core. --mem: ask for a little more than your peak and check the real figure with seff. --time: your estimate plus about 25 percent, since too short kills the job and far too long delays scheduling. --gres=gpu:1: only on the gpu partition, naming the type if you need one such as gpu:a100:1 or gpu:l40s:1. A closing note warns that asking for far more than you use means waiting longer in the queue for no benefit.’</p>
+<figure><img src="fig/04-resource-request.png" alt="Four SLURM flags and guidance for each. --cpus-per-task: start at 1 and only raise it if your code actually uses more than one core. --mem: ask for a little more than your peak and check the real figure with seff. --time: your estimate plus about 25 percent, since too short kills the job and far too long delays scheduling. --gres=gpu:1: only on the gpu partition, naming the type if you need one such as gpu:a100:1 or gpu:l40s:1. A closing note warns that asking for far more than you use means waiting longer in the queue for no benefit." class="figure mx-auto d-block"><div class="figcaption">Four flags, and what each one costs you if you
+get it wrong.</div>
+</figure><hr></section><section id="04-interactive-jobs"><h2 class="section-heading"><a href="04-interactive-jobs.html">Interactive Jobs</a></h2>
 <hr class="half-width"></section><section id="05-writing-batch-scripts"><h2 class="section-heading"><a href="05-writing-batch-scripts.html">Writing Batch Scripts</a></h2>
 <hr class="half-width"></section><section id="06-batch-job-submission"><h2 class="section-heading"><a href="06-batch-job-submission.html">Batch Job Submission</a></h2>
 <hr class="half-width"></section><section id="07-monitoring-jobs"><h2 class="section-heading"><a href="07-monitoring-jobs.html">Monitoring Running Jobs</a></h2>
 <hr class="half-width">
 <h3 id="07-monitoring-jobs-figure-1">Figure 1</h3>
-<p aria-hidden="true">Image 1 of 1: ‘Terminal on Sagehen showing squeue output for one user. Three jobs named demo1, demo2, and demo3 run on the short partition in state R for 25 seconds each, on nodes a001 and a002.’</p>
-<figure><img src="fig/07-squeue-user-running-jobs.png" alt="Terminal on Sagehen showing squeue output for one user. Three jobs named demo1, demo2, and demo3 run on the short partition in state R for 25 seconds each, on nodes a001 and a002." class="figure mx-auto d-block"><div class="figcaption">Three running jobs as
+<p aria-hidden="true">Image 1 of 1: ‘Terminal on Sagehen HPC showing squeue output for one user. Three jobs named demo1, demo2, and demo3 run on the short partition in state R for 25 seconds each, on nodes a001 and a002.’</p>
+<figure><img src="fig/07-squeue-user-running-jobs.png" alt="Terminal on Sagehen HPC showing squeue output for one user. Three jobs named demo1, demo2, and demo3 run on the short partition in state R for 25 seconds each, on nodes a001 and a002." class="figure mx-auto d-block"><div class="figcaption">Three running jobs as
 <code>squeue -u $USER</code> shows them — state <code>R</code>, elapsed
 time, and the node each landed on.</div>
 </figure><hr>
 <h3 id="07-monitoring-jobs-figure-2">Figure 2</h3>
+<p aria-hidden="true">Image 1 of 1: ‘A troubleshooting map starting from the statement that a job is not doing what you expect. Four branches: still PENDING, where squeue and the REASON column tell you whether it is waiting for resources or behind other jobs in priority; TIMEOUT, meaning the job hit its --time limit; OUT_OF_MEMORY, meaning --mem was too low and seff will show what it needed; and FAILED, where the error file is the place to start. A closing line gives the sacct command that reports all of these once the job has finished.’</p>
+<figure><img src="fig/05-troubleshooting.png" alt="A troubleshooting map starting from the statement that a job is not doing what you expect. Four branches: still PENDING, where squeue and the REASON column tell you whether it is waiting for resources or behind other jobs in priority; TIMEOUT, meaning the job hit its --time limit; OUT_OF_MEMORY, meaning --mem was too low and seff will show what it needed; and FAILED, where the error file is the place to start. A closing line gives the sacct command that reports all of these once the job has finished." class="figure mx-auto d-block"><div class="figcaption">Start from the state SLURM reports, then work
+backwards.</div>
+</figure><hr>
+<h3 id="07-monitoring-jobs-figure-3">Figure 3</h3>
 <p aria-hidden="true">Image 1 of 1: ‘Terminal output of sacct filtered to the last five minutes. Jobs 38366 through 38369 show state COMPLETED with exit code 0:0, while job 38370 named fail shows FAILED with exit code 1:0. Each job lists batch and extern steps with MaxRSS values.’</p>
 <figure><img src="fig/07-sacct-history-exitcodes.png" alt="Terminal output of sacct filtered to the last five minutes. Jobs 38366 through 38369 show state COMPLETED with exit code 0:0, while job 38370 named fail shows FAILED with exit code 1:0. Each job lists batch and extern steps with MaxRSS values." class="figure mx-auto d-block"><div class="figcaption">
 <code>sacct</code> history with exit codes:
@@ -492,14 +517,14 @@ completed jobs show <code>0:0</code>, the deliberately failing job shows
   "inLanguage": "en",
   "dct:conformsTo": "https://bioschemas.org/profiles/LearningResource/1.0-RELEASE",
   "description": "A Carpentries Lesson teaching foundational data and coding skills to researchers worldwide",
-  "keywords": "Pomona College, HPC, SLURM, job scheduling, Sagehen, research computing",
+  "keywords": "Pomona College, HPC, SLURM, job scheduling, Sagehen HPC, research computing",
   "name": "All Images",
   "creativeWorkStatus": "active",
   "url": "https://pomona-college.github.io/hpc-slurm-scheduling/images.html",
   "identifier": "https://pomona-college.github.io/hpc-slurm-scheduling/images.html",
   "dateCreated": "2026-03-05",
-  "dateModified": "2026-08-26",
-  "datePublished": "2026-08-26"
+  "dateModified": "2026-08-27",
+  "datePublished": "2026-08-27"
 }
 
   </script><script>

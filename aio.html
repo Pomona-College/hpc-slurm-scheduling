@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<title>SLURM Job Scheduling on Sagehen — Pomona College HPC Workshop Series: All in One View</title>
+<title>SLURM Job Scheduling on Sagehen HPC — Pomona College HPC Workshop Series: All in One View</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="assets/themetoggle.js"></script><link rel="stylesheet" type="text/css" href="assets/styles.css">
 <script src="assets/scripts.js" type="text/javascript"></script><!-- mathjax --><!-- NOTE: https://docs.mathjax.org/en/latest/output/mathml.html#mathml-support --><!-- Changes from V2 to V4: https://mathjax.github.io/MathJax-demos-web/convert-configuration/convert-configuration.html
@@ -90,7 +90,7 @@
       <img class="small-logo" alt="Carpentries Incubator" src="assets/images/incubator-logo-sm.svg">
 </div>
     <div class="lesson-title-md">
-      SLURM Job Scheduling on Sagehen — Pomona College HPC Workshop Series
+      SLURM Job Scheduling on Sagehen HPC — Pomona College HPC Workshop Series
     </div>
     <div class="search-icon-sm">
       <!-- TODO: do not show until we have search
@@ -101,7 +101,7 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 <li class="nav-item">
           <span class="lesson-title">
-            SLURM Job Scheduling on Sagehen — Pomona College HPC Workshop Series
+            SLURM Job Scheduling on Sagehen HPC — Pomona College HPC Workshop Series
           </span>
         </li>
         <li class="nav-item">
@@ -215,7 +215,7 @@
                   <div class="accordion accordion-flush" id="accordionFlush1">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading1">
-        <a href="index.html">SLURM Job Scheduling on Sagehen</a>
+        <a href="index.html">SLURM Job Scheduling on Sagehen HPC</a>
     </div>
 <!--/div.accordion-header-->
 
@@ -424,7 +424,7 @@
         
 <section id="aio-01-intro-slurm"><p>Content from <a href="01-intro-slurm.html">Introduction to SLURM</a></p>
 <hr>
-<p>Last updated on 2026-08-24 |
+<p>Last updated on 2026-08-27 |
 
         <a href="https://github.com/Pomona-College/hpc-slurm-scheduling/edit/main/episodes/01-intro-slurm.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -452,7 +452,7 @@
 <ul>
 <li>Understand the purpose of job schedulers in shared computing
 environments</li>
-<li>Learn the basic architecture of Sagehen</li>
+<li>Learn the basic architecture of Sagehen HPC</li>
 <li>Distinguish between head nodes and compute nodes</li>
 <li>Understand the SLURM job lifecycle</li>
 </ul>
@@ -507,7 +507,7 @@ different characteristics</li>
 cores, memory, time, GPUs)</li>
 </ul>
 </div>
-</section><section><h2 class="section-heading" id="the-sagehen-cluster-architecture">The Sagehen Cluster Architecture<a class="anchor" aria-label="anchor" href="#the-sagehen-cluster-architecture"></a>
+</section><section><h2 class="section-heading" id="the-sagehen-hpc-cluster-architecture">The Sagehen HPC Cluster Architecture<a class="anchor" aria-label="anchor" href="#the-sagehen-hpc-cluster-architecture"></a>
 </h2>
 <hr class="half-width">
 <div class="section level3">
@@ -521,7 +521,9 @@ cores, memory, time, GPUs)</li>
 <li>
 <strong>Purpose</strong>: Login, submit jobs, manage files</li>
 </ul>
-<div id="the-head-node-is-sacred" class="callout">
+<figure><img src="fig/02-cluster-architecture.png" alt="Diagram of Sagehen HPC. Your laptop connects by SSH to the head node at sagehen.hpc.pomona.edu, which is for login and job submission only. From there SLURM dispatches work to three partitions: amd, the default, with 12 nodes a001 to a012 of 128 cores and 500 GB each and up to 720 hours; gpu, with 10 GPUs in total made up of four A100 80GB, four L40S 48GB and two RTX PRO 6000 96GB; and short, which shares the amd nodes, is capped at 2 hours and starts almost immediately. Below, shared storage visible from every node: /rhome with 100 GB per user backed up, /bigdata/lab per lab with 1 TB backed up, and /scratch node-local SSD deleted at job end." class="figure mx-auto d-block"><div class="figcaption">The head node takes your submission; SLURM
+decides which compute node actually runs it.</div>
+</figure><div id="the-head-node-is-sacred" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
@@ -575,6 +577,9 @@ see Workshop 16)</td>
 </tr>
 </tbody>
 </table>
+<figure><img src="fig/01-job-lifecycle.png" alt="A job submitted with sbatch enters the PENDING state while it waits for free CPUs or a GPU, for your other jobs to finish, or for the partition limits to allow it. It then moves to RUNNING while the script executes on a compute node. From there it ends as COMPLETED with exit code zero, FAILED with a non-zero exit, or CANCELLED by scancel or a timeout. All three can be checked with sacct -j jobid." class="figure mx-auto d-block"><div class="figcaption">Every job ends in one of three states, and sacct
+will tell you which.</div>
+</figure>
 </div>
 </section><section><h2 class="section-heading" id="the-slurm-job-lifecycle">The SLURM Job Lifecycle<a class="anchor" aria-label="anchor" href="#the-slurm-job-lifecycle"></a>
 </h2>
@@ -636,13 +641,13 @@ freed</li>
 </tr>
 </tbody>
 </table>
-<div id="challenge-1-exploring-sagehen" class="callout challenge">
+<div id="challenge-1-exploring-sagehen-hpc" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <span class="callout-header">Challenge</span>
-<div id="challenge-1-exploring-sagehen" class="callout-inner">
-<h3 class="callout-title">Challenge 1: Exploring Sagehen</h3>
+<div id="challenge-1-exploring-sagehen-hpc" class="callout-inner">
+<h3 class="callout-title">Challenge 1: Exploring Sagehen HPC</h3>
 <div class="callout-content">
 <p>Connect to Sagehen and explore its structure.</p>
 <ol style="list-style-type: decimal">
@@ -679,7 +684,7 @@ freed</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>You should see <code>sagehen</code> from <code>hostname</code>,
 <code>2</code> from <code>nproc</code>, and ~8 GB from
@@ -714,7 +719,7 @@ priorities</li>
 <!-- highlight <labname>/<myusername> placeholders in code blocks; remove if the varnish theme handles this natively -->
 <script>(function(){var CSS='.sh-placeholder{color:#c2410c;font-weight:700}[data-bs-theme="dark"] .sh-placeholder,html.dark .sh-placeholder{color:#fdba74}@media (prefers-color-scheme: dark){[data-bs-theme="auto"] .sh-placeholder{color:#fdba74}}';var RX=/<labname>|<myusername>/g;function firstMatch(el){var w=document.createTreeWalker(el,NodeFilter.SHOW_TEXT,null),nodes=[],full='';while(w.nextNode()){nodes.push({n:w.currentNode,s:full.length});full+=w.currentNode.nodeValue;}RX.lastIndex=0;var m;while((m=RX.exec(full))){var s=m.index,e=s+m[0].length,inSpan=false,parts=[];for(var j=0;j<nodes.length;j++){var ns=nodes[j].s,ne=ns+nodes[j].n.nodeValue.length;if(ne<=s||ns>=e)continue;parts.push({node:nodes[j].n,a:Math.max(s-ns,0),b:Math.min(e-ns,nodes[j].n.nodeValue.length)});var p=nodes[j].n.parentNode;while(p&&p!==el){if(p.classList&&p.classList.contains('sh-placeholder')){inSpan=true;break;}p=p.parentNode;}}if(!inSpan&&parts.length)return parts;}return null;}function wrapParts(parts){for(var i=parts.length-1;i>=0;i--){var t=parts[i].node,txt=t.nodeValue,a=parts[i].a,b=parts[i].b;var span=document.createElement('span');span.className='sh-placeholder';span.textContent=txt.slice(a,b);var f=document.createDocumentFragment();if(a>0)f.appendChild(document.createTextNode(txt.slice(0,a)));f.appendChild(span);if(b<txt.length)f.appendChild(document.createTextNode(txt.slice(b)));t.parentNode.replaceChild(f,t);}}function run(){var st=document.createElement('style');st.textContent=CSS;document.head.appendChild(st);document.querySelectorAll('pre,code').forEach(function(el){var guard=0,parts;while((parts=firstMatch(el))&&guard++<500){wrapParts(parts);}});}if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',run);}else{run();}})();</script></section></section><section id="aio-02-partitions-resources"><p>Content from <a href="02-partitions-resources.html">Partitions and Resources</a></p>
 <hr>
-<p>Last updated on 2026-08-24 |
+<p>Last updated on 2026-08-27 |
 
         <a href="https://github.com/Pomona-College/hpc-slurm-scheduling/edit/main/episodes/02-partitions-resources.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -728,7 +733,7 @@ priorities</li>
 <div class="inner">
 <h3 class="card-title">Questions</h3>
 <ul>
-<li>What partitions are available on Sagehen?</li>
+<li>What partitions are available on Sagehen HPC?</li>
 <li>How do I choose the right partition for my job?</li>
 <li>What GPU types are available?</li>
 </ul>
@@ -904,7 +909,9 @@ partition</strong></p>
 <p>If the test succeeds, you can change <code>--partition=short</code>
 to <code>--partition=amd</code> (and increase <code>--time</code>) for
 the production run.</p>
-</section><section><h2 class="section-heading" id="choosing-the-right-partition">Choosing the Right Partition<a class="anchor" aria-label="anchor" href="#choosing-the-right-partition"></a>
+<figure><img src="fig/03-partition-decision.png" alt="A decision tree for choosing a partition. If you need a GPU, use the gpu partition with four A100 80GB, four L40S 48GB and two RTX PRO 6000 96GB cards, allowing up to 720 hours. If not, ask whether the job will finish in under two hours; if it will, use short, which shares the amd nodes and starts almost immediately. Otherwise use amd, the default, with 12 nodes of 128 cores and 500 GB each and up to 720 hours." class="figure mx-auto d-block"><div class="figcaption">Two questions settle it: do you need a GPU, and
+will the job finish inside two hours?</div>
+</figure></section><section><h2 class="section-heading" id="choosing-the-right-partition">Choosing the Right Partition<a class="anchor" aria-label="anchor" href="#choosing-the-right-partition"></a>
 </h2>
 <hr class="half-width">
 <ol style="list-style-type: decimal">
@@ -967,7 +974,7 @@ for current limits or temporary increases.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li>
@@ -1014,7 +1021,7 @@ days); <code>short</code> has a shorter walltime — check
 </div>
 </section></section><section id="aio-03-requesting-resources"><p>Content from <a href="03-requesting-resources.html">Requesting Resources</a></p>
 <hr>
-<p>Last updated on 2026-08-24 |
+<p>Last updated on 2026-08-27 |
 
         <a href="https://github.com/Pomona-College/hpc-slurm-scheduling/edit/main/episodes/03-requesting-resources.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -1158,6 +1165,9 @@ GPUs</li>
 <td><code>-p amd</code></td>
 </tr></tbody>
 </table>
+<figure><img src="fig/04-resource-request.png" alt="Four SLURM flags and guidance for each. --cpus-per-task: start at 1 and only raise it if your code actually uses more than one core. --mem: ask for a little more than your peak and check the real figure with seff. --time: your estimate plus about 25 percent, since too short kills the job and far too long delays scheduling. --gres=gpu:1: only on the gpu partition, naming the type if you need one such as gpu:a100:1 or gpu:l40s:1. A closing note warns that asking for far more than you use means waiting longer in the queue for no benefit." class="figure mx-auto d-block"><div class="figcaption">Four flags, and what each one costs you if you
+get it wrong.</div>
+</figure>
 </div>
 </section><section><h2 class="section-heading" id="estimating-resource-needs">Estimating Resource Needs<a class="anchor" aria-label="anchor" href="#estimating-resource-needs"></a>
 </h2>
@@ -1558,7 +1568,7 @@ Session</h3>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>Inside the session, <code>hostname</code> shows a compute node (e.g.,
 <code>a005</code>), <code>free -h</code> shows 500 GB total RAM, and
@@ -1949,7 +1959,7 @@ flag loads your environment)</li>
 </div>
 </section></section><section id="aio-06-batch-job-submission"><p>Content from <a href="06-batch-job-submission.html">Batch Job Submission</a></p>
 <hr>
-<p>Last updated on 2026-08-24 |
+<p>Last updated on 2026-08-27 |
 
         <a href="https://github.com/Pomona-College/hpc-slurm-scheduling/edit/main/episodes/06-batch-job-submission.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -1991,7 +2001,7 @@ time?</li>
 <section><h2 class="section-heading" id="why-batch-submission-is-the-right-default">Why Batch Submission Is the Right Default<a class="anchor" aria-label="anchor" href="#why-batch-submission-is-the-right-default"></a>
 </h2>
 <hr class="half-width">
-<p>The shell prompt on the Sagehen login node is convenient but not
+<p>The shell prompt on the Sagehen HPC login node is convenient but not
 where your real work belongs. Login nodes are shared and intentionally
 constrained: a long calculation on the login node steals resources from
 every other user trying to edit, transfer, or schedule. Batch submission
@@ -2333,7 +2343,7 @@ future submissions</li>
 </div>
 </section></section><section id="aio-07-monitoring-jobs"><p>Content from <a href="07-monitoring-jobs.html">Monitoring Running Jobs</a></p>
 <hr>
-<p>Last updated on 2026-08-24 |
+<p>Last updated on 2026-08-27 |
 
         <a href="https://github.com/Pomona-College/hpc-slurm-scheduling/edit/main/episodes/07-monitoring-jobs.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -2390,7 +2400,7 @@ future submissions</li>
 <span id="cb2-3"><a href="#cb2-3" tabindex="-1" aria-label="code-block-2-3"></a><span class="ex">squeue</span> <span class="at">--states</span><span class="op">=</span>RUNNING      <span class="co"># Only running jobs</span></span>
 <span id="cb2-4"><a href="#cb2-4" tabindex="-1" aria-label="code-block-2-4"></a><span class="ex">squeue</span> <span class="at">--states</span><span class="op">=</span>PENDING      <span class="co"># Only pending jobs</span></span></code></pre>
 </div>
-<figure><img src="fig/07-squeue-user-running-jobs.png" alt="Terminal on Sagehen showing squeue output for one user. Three jobs named demo1, demo2, and demo3 run on the short partition in state R for 25 seconds each, on nodes a001 and a002." class="figure mx-auto d-block"><div class="figcaption">Three running jobs as
+<figure><img src="fig/07-squeue-user-running-jobs.png" alt="Terminal on Sagehen HPC showing squeue output for one user. Three jobs named demo1, demo2, and demo3 run on the short partition in state R for 25 seconds each, on nodes a001 and a002." class="figure mx-auto d-block"><div class="figcaption">Three running jobs as
 <code>squeue -u $USER</code> shows them — state <code>R</code>, elapsed
 time, and the node each landed on.</div>
 </figure>
@@ -2410,6 +2420,9 @@ time, and the node each landed on.</div>
 <span id="cb3-7"><a href="#cb3-7" tabindex="-1" aria-label="code-block-3-7"></a><span class="co"># Watch in real-time (refreshes every 2 seconds)</span></span>
 <span id="cb3-8"><a href="#cb3-8" tabindex="-1" aria-label="code-block-3-8"></a><span class="ex">watch</span> <span class="at">-n</span> 2 squeue <span class="at">-u</span> <span class="va">$USER</span></span></code></pre>
 </div>
+<figure><img src="fig/05-troubleshooting.png" alt="A troubleshooting map starting from the statement that a job is not doing what you expect. Four branches: still PENDING, where squeue and the REASON column tell you whether it is waiting for resources or behind other jobs in priority; TIMEOUT, meaning the job hit its --time limit; OUT_OF_MEMORY, meaning --mem was too low and seff will show what it needed; and FAILED, where the error file is the place to start. A closing line gives the sacct command that reports all of these once the job has finished." class="figure mx-auto d-block"><div class="figcaption">Start from the state SLURM reports, then work
+backwards.</div>
+</figure>
 </div>
 </section><section><h2 class="section-heading" id="job-history-with-sacct">Job History with sacct<a class="anchor" aria-label="anchor" href="#job-history-with-sacct"></a>
 </h2>
@@ -2493,9 +2506,9 @@ next time</p>
 <div id="disk-usage-on-beegfs" class="callout-inner">
 <h3 class="callout-title">Disk Usage on BeeGFS</h3>
 <div class="callout-content">
-<p>Use <code>quota_check.sh</code> to check storage usage on Sagehen’s
-BeeGFS filesystem. The standard <code>du</code> command does not work
-correctly for quota checks.</p>
+<p>Use <code>quota_check.sh</code> to check storage usage on Sagehen
+HPC’s BeeGFS filesystem. The standard <code>du</code> command does not
+work correctly for quota checks.</p>
 </div>
 </div>
 </div>
@@ -2781,7 +2794,7 @@ unless you intend to cancel everything</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>After canceling, <code>squeue</code> no longer shows the job.
 <code>sacct</code> shows STATE=CANCELLED with exit code 0:0, because
@@ -3042,7 +3055,7 @@ threads</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>Output should show <code>CUDA available: True</code>, the GPU model
 name, and a <code>torch.Size([1000, 1000])</code> result. This confirms
@@ -3875,7 +3888,7 @@ flag initializes the module environment).</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>Scratch should be noticeably faster (often 2-10x) than home storage
 because it uses local SSDs instead of the network filesystem. This is
@@ -3952,14 +3965,14 @@ validation</li>
   "inLanguage": "en",
   "dct:conformsTo": "https://bioschemas.org/profiles/LearningResource/1.0-RELEASE",
   "description": "A Carpentries Lesson teaching foundational data and coding skills to researchers worldwide",
-  "keywords": "Pomona College, HPC, SLURM, job scheduling, Sagehen, research computing",
+  "keywords": "Pomona College, HPC, SLURM, job scheduling, Sagehen HPC, research computing",
   "name": "All in One View",
   "creativeWorkStatus": "active",
   "url": "https://pomona-college.github.io/hpc-slurm-scheduling/aio.html",
   "identifier": "https://pomona-college.github.io/hpc-slurm-scheduling/aio.html",
   "dateCreated": "2026-03-05",
-  "dateModified": "2026-08-26",
-  "datePublished": "2026-08-26"
+  "dateModified": "2026-08-27",
+  "datePublished": "2026-08-27"
 }
 
   </script><script>
