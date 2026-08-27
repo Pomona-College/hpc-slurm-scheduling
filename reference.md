@@ -2,7 +2,7 @@
 title: Quick Reference
 ---
 
-## Quick Reference Card: SLURM Commands on Sagehen
+## Quick Reference Card: SLURM Commands on Sagehen HPC
 
 This is a handy cheat sheet for common SLURM commands. Print it out or bookmark it!
 

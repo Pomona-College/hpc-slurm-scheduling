@@ -52,6 +52,8 @@ exercises: 10
 |-----------|---------|
 | `-p` / `--partition` | `-p amd` |
 
+![Four flags, and what each one costs you if you get it wrong.](fig/04-resource-request.png){alt='Four SLURM flags and guidance for each. --cpus-per-task: start at 1 and only raise it if your code actually uses more than one core. --mem: ask for a little more than your peak and check the real figure with seff. --time: your estimate plus about 25 percent, since too short kills the job and far too long delays scheduling. --gres=gpu:1: only on the gpu partition, naming the type if you need one such as gpu:a100:1 or gpu:l40s:1. A closing note warns that asking for far more than you use means waiting longer in the queue for no benefit.'}
+
 ## Estimating Resource Needs
 
 ### CPU Cores

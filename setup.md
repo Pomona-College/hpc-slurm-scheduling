@@ -2,7 +2,7 @@
 title: Setup
 ---
 
-## Getting Started with Sagehen
+## Getting Started with Sagehen HPC
 
 This page will guide you through setting up access to Sagehen, Pomona College's research computing cluster. By the end, you'll be able to connect and start running jobs.
 
@@ -238,7 +238,7 @@ If you encounter issues:
 ## Important Reminders
 
 ::::::::::::::::::::::::::::::::::::::: callout
-## Sagehen is a Shared Resource
+## Sagehen HPC is a Shared Resource
 
 Remember:
 - **Don't run jobs on the head node** (sagehen.hpc.pomona.edu) - use compute nodes

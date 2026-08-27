@@ -12,7 +12,7 @@ This workshop serves researchers across Pomona College with diverse backgrounds,
 
 **Background**: Sam is in their 3rd year of a chemistry PhD, working on computational drug discovery. They have basic Linux experience from a undergraduate "computing in chemistry" course but have never used HPC.
 
-**Motivation**: "My molecular dynamics simulations take weeks on my laptop. My advisor says Sagehen can run them in days. I need to understand how to submit jobs there."
+**Motivation**: "My molecular dynamics simulations take weeks on my laptop. My advisor says Sagehen HPC can run them in days. I need to understand how to submit jobs there."
 
 **What Sam needs**:
 - To get basic MD simulations running without deep understanding of SLURM
