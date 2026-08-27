@@ -53,6 +53,8 @@ Without a scheduler, researchers would need to manually coordinate who runs what
 
 ::::::::::::::::::::::::::::::::::::::: callout
 
+![The head node takes your submission; SLURM decides which compute node actually runs it.](fig/02-cluster-architecture.png){alt='Diagram of Sagehen HPC. Your laptop connects by SSH to the head node at sagehen.hpc.pomona.edu, which is for login and job submission only. From there SLURM dispatches work to three partitions: amd, the default, with 12 nodes a001 to a012 of 128 cores and 500 GB each and up to 720 hours; gpu, with 10 GPUs in total made up of four A100 80GB, four L40S 48GB and two RTX PRO 6000 96GB; and short, which shares the amd nodes, is capped at 2 hours and starts almost immediately. Below, shared storage visible from every node: /rhome with 100 GB per user backed up, /bigdata/lab per lab with 1 TB backed up, and /scratch node-local SSD deleted at job end.'}
+
 ## The Head Node is Sacred
 
 The head node has only 2 CPU threads and 8 GB of RAM. Running compute jobs there will crash the login server, kill other users' jobs, and result in account restrictions. Always submit jobs to compute nodes via SLURM.
@@ -66,6 +68,8 @@ The head node has only 2 CPU threads and 8 GB of RAM. Running compute jobs there
 | amd | See `sinfo -p amd` for current configuration | 30 days | General compute |
 | gpu | 10 GPUs across multiple nodes (4× A100, 4× L40S, 2× RTX PRO 6000; see Workshop 16) | 30 days | ML, GPU-accelerated work |
 | short | See `sinfo -p short` for current configuration | Shorter max walltime than amd/gpu | Quick test jobs, debugging, rapid prototyping |
+
+![Every job ends in one of three states, and sacct will tell you which.](fig/01-job-lifecycle.png){alt='A job submitted with sbatch enters the PENDING state while it waits for free CPUs or a GPU, for your other jobs to finish, or for the partition limits to allow it. It then moves to RUNNING while the script executes on a compute node. From there it ends as COMPLETED with exit code zero, FAILED with a non-zero exit, or CANCELLED by scancel or a timeout. All three can be checked with sacct -j jobid.'}
 
 ## The SLURM Job Lifecycle
 

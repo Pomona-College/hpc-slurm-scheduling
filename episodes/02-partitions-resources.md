@@ -98,6 +98,8 @@ python my_script.py --dry-run
 
 If the test succeeds, you can change `--partition=short` to `--partition=amd` (and increase `--time`) for the production run.
 
+![Two questions settle it: do you need a GPU, and will the job finish inside two hours?](fig/03-partition-decision.png){alt='A decision tree for choosing a partition. If you need a GPU, use the gpu partition with four A100 80GB, four L40S 48GB and two RTX PRO 6000 96GB cards, allowing up to 720 hours. If not, ask whether the job will finish in under two hours; if it will, use short, which shares the amd nodes and starts almost immediately. Otherwise use amd, the default, with 12 nodes of 128 cores and 500 GB each and up to 720 hours.'}
+
 ## Choosing the Right Partition
 
 1. **Need GPU acceleration?** -> `gpu` partition

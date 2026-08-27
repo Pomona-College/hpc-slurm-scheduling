@@ -55,6 +55,8 @@ squeue -u $USER --format=jobid,name,state,elapsed,timelimit
 watch -n 2 squeue -u $USER
 ```
 
+![Start from the state SLURM reports, then work backwards.](fig/05-troubleshooting.png){alt='A troubleshooting map starting from the statement that a job is not doing what you expect. Four branches: still PENDING, where squeue and the REASON column tell you whether it is waiting for resources or behind other jobs in priority; TIMEOUT, meaning the job hit its --time limit; OUT_OF_MEMORY, meaning --mem was too low and seff will show what it needed; and FAILED, where the error file is the place to start. A closing line gives the sacct command that reports all of these once the job has finished.'}
+
 ## Job History with sacct
 
 After a job finishes, `squeue` no longer shows it. Use `sacct`:
